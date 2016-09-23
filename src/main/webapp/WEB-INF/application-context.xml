@@ -15,8 +15,25 @@
                            http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx.xsd 
     http://www.springframework.org/schema/aop
-    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
+	
+	 <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+    <package>com.app.service</package>
+  </camelContext>
+
+  <!-- lets configure the default ActiveMQ broker URL -->
+  <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+    <property name="connectionFactory">
+      <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://0.0.0.0:61616"/>
+      </bean>
+    </property>
+  </bean>
+
+  
+  
 	<context:annotation-config></context:annotation-config>
 <aop:aspectj-autoproxy/>
 	<tx:annotation-driven />

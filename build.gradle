@@ -43,6 +43,11 @@ dependencies {
 		runtime 'commons-dbcp:commons-dbcp:1.4'
 		runtime 'org.mybatis:mybatis-spring:1.2.3'
 		runtime 'org.mybatis:mybatis:3.3.0'
+		compile "org.apache.camel:camel-spring:2.3.0"
+		compile "org.apache.camel:camel-jms:2.17.3"
+		compile "org.apache.activemq:activemq-broker:5.14.0"
+		compile "org.apache.activemq:activemq-client:5.14.0"
+		
 }
 
 apply from: 'gradle/dependencies.gradle'
